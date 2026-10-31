@@ -1,0 +1,1392 @@
+{
+  "version": "B23-01",
+  "format": "GLB/glTF 2.0",
+  "units": "metres in display model; not a measured CAD model",
+  "localStudyOnly": true,
+  "provenancePending": true,
+  "model": "model.glb",
+  "targets": [
+    {
+      "id": "roof",
+      "node": "roof",
+      "label": "Toit plein et ciel noir",
+      "ficheId": "body-roof",
+      "note": "Toit plein peint et ciel noir.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        3,
+        0
+      ],
+      "stage": [
+        0,
+        0.55
+      ]
+    },
+    {
+      "id": "glass",
+      "node": "glass",
+      "label": "Vitrages hors toit",
+      "ficheId": "body-roof",
+      "note": "Vitrages hors toit. Le toit reste plein et peint.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        2.4,
+        0
+      ],
+      "stage": [
+        0.04,
+        0.58
+      ]
+    },
+    {
+      "id": "body",
+      "node": "body",
+      "label": "Carrosserie et éclairages",
+      "ficheId": "body-roof",
+      "note": "Coque, panneaux extérieurs et sous-bassement regroupés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        1.55,
+        0
+      ],
+      "stage": [
+        0.08,
+        0.65
+      ]
+    },
+    {
+      "id": "seats",
+      "node": "seats",
+      "label": "Garnitures fixes, montants et ceintures avant",
+      "ficheId": "seats",
+      "note": "Garnitures restant après séparation des deux sièges avant et de la banquette. Les profils de sellerie ne sont pas encore réceptionnés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        1.55,
+        0
+      ],
+      "stage": [
+        0.08,
+        0.65
+      ]
+    },
+    {
+      "id": "dashboard",
+      "node": "dashboard",
+      "label": "Tableau de bord hors écrans",
+      "ficheId": "infotainment",
+      "note": "Formes reconnues du tableau de bord conservées. Les deux écrans sont sélectionnables séparément.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.029950024994048446,
+        0.35,
+        0.29850124958340774
+      ],
+      "stage": [
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "id": "steering",
+      "node": "steering",
+      "label": "Volant",
+      "ficheId": "seats",
+      "note": "Volant de la base retenue.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.07188005998571627,
+        0.35,
+        0.7164029990001786
+      ],
+      "stage": [
+        0.43,
+        0.96
+      ]
+    },
+    {
+      "id": "console",
+      "node": "console",
+      "label": "Console fixe et rangements",
+      "ficheId": "seats",
+      "note": "Console fixe ; rangements fermés dans ce modèle.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.007986673331746252,
+        0.16,
+        -0.07960033322224207
+      ],
+      "stage": [
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "id": "floor",
+      "node": "floor",
+      "label": "Plancher et petits détails non attribués",
+      "ficheId": "seats",
+      "note": "Plancher et petits détails non attribués ; groupe de travail provisoire.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "stage": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "armrest0",
+      "node": "armrest0",
+      "label": "Accoudoir 1",
+      "ficheId": "seats",
+      "note": "Accoudoir dans sa position de repos exportée.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.007986673331746252,
+        0.16,
+        -0.07960033322224207
+      ],
+      "stage": [
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "id": "armrest1",
+      "node": "armrest1",
+      "label": "Accoudoir 2",
+      "ficheId": "seats",
+      "note": "Accoudoir dans sa position de repos exportée.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.007986673331746252,
+        0.16,
+        -0.07960033322224207
+      ],
+      "stage": [
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "id": "cowl",
+      "node": "cowl",
+      "label": "Baie et essuie-glaces",
+      "ficheId": "body-roof",
+      "note": "Baie et essuie-glaces regroupés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        1.55,
+        0
+      ],
+      "stage": [
+        0.08,
+        0.65
+      ]
+    },
+    {
+      "id": "battery",
+      "node": "battery",
+      "label": "Batterie · bac et couvercle",
+      "ficheId": "battery",
+      "note": "Bac haute tension fermé, couvercle nervuré, bride et fixations périphériques, connecteurs et raccords illustratifs. Forme enrichie d’après la référence fournie ; modules internes, refroidissement et routages non détaillés. Dimensions et implantations estimées, aucune mesure de santé de batterie représentée.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        -0.55,
+        0
+      ],
+      "stage": [
+        0.28,
+        0.85
+      ]
+    },
+    {
+      "id": "motorFront",
+      "node": "motorFront",
+      "label": "Groupe moteur avant",
+      "ficheId": "powertrain",
+      "note": "Ensemble électrique avant schématique : carter moteur, réducteur/différentiel, boîtier électronique, connecteurs, supports et demi-arbres avec soufflets. Volumes et implantation estimés ; ni coupe interne, ni référence exacte de moteur ou puissance déduite de la photo.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.10981675831151098,
+        -0.1,
+        1.0945045818058285
+      ],
+      "stage": [
+        0.28,
+        1
+      ]
+    },
+    {
+      "id": "motorRear",
+      "node": "motorRear",
+      "label": "Groupe moteur arrière",
+      "ficheId": "powertrain",
+      "note": "Ensemble électrique arrière schématique : carter moteur, réducteur/différentiel, boîtier électronique, connecteurs, supports et demi-arbres avec soufflets. Présentation pédagogique de la transmission ; aucun gros moteur Performance ou carter rouge transféré depuis l’exemple.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.10981675831151098,
+        -0.1,
+        -1.0945045818058285
+      ],
+      "stage": [
+        0.28,
+        1
+      ]
+    },
+    {
+      "id": "wheel0",
+      "node": "wheel0",
+      "label": "Roue avant droite",
+      "ficheId": "wheels-suspension",
+      "note": "Jante B13 validée et pneu B12 conservés ; ensemble déplacé sans déformation.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.83986343552322,
+        0,
+        0.15693759801632712
+      ],
+      "stage": [
+        0.2,
+        0.9
+      ]
+    },
+    {
+      "id": "wheel1",
+      "node": "wheel1",
+      "label": "Roue avant gauche",
+      "ficheId": "wheels-suspension",
+      "note": "Jante B13 validée et pneu B12 conservés ; ensemble déplacé sans déformation.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.7919433955327424,
+        0,
+        0.32066440131712526
+      ],
+      "stage": [
+        0.2,
+        0.9
+      ]
+    },
+    {
+      "id": "wheel2",
+      "node": "wheel2",
+      "label": "Roue arrière droite",
+      "ficheId": "wheels-suspension",
+      "note": "Jante B13 validée et pneu B12 conservés ; ensemble déplacé sans déformation.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.7919433955327424,
+        0,
+        -0.32066440131712526
+      ],
+      "stage": [
+        0.2,
+        0.9
+      ]
+    },
+    {
+      "id": "wheel3",
+      "node": "wheel3",
+      "label": "Roue arrière gauche",
+      "ficheId": "wheels-suspension",
+      "note": "Jante B13 validée et pneu B12 conservés ; ensemble déplacé sans déformation.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.83986343552322,
+        0,
+        -0.15693759801632712
+      ],
+      "stage": [
+        0.2,
+        0.9
+      ]
+    },
+    {
+      "id": "trimRight",
+      "node": "trimRight",
+      "label": "Garnitures droites",
+      "ficheId": "seats",
+      "note": "Garnitures intérieures et poignées de ce côté. Surfaces opaques désormais visibles des deux faces ; épaisseur et envers simplifiés, panneaux extérieurs dans la coque.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.8457535404863219,
+        0.2,
+        -0.08485840414980393
+      ],
+      "stage": [
+        0.26,
+        0.86
+      ]
+    },
+    {
+      "id": "trimLeft",
+      "node": "trimLeft",
+      "label": "Garnitures gauches",
+      "ficheId": "seats",
+      "note": "Garnitures intérieures et poignées de ce côté. Surfaces opaques désormais visibles des deux faces ; épaisseur et envers simplifiés, panneaux extérieurs dans la coque.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.8457535404863219,
+        0.2,
+        0.08485840414980393
+      ],
+      "stage": [
+        0.26,
+        0.86
+      ]
+    },
+    {
+      "id": "headlightLeft",
+      "node": "headlightLeft",
+      "label": "Phare avant gauche",
+      "ficheId": "body-roof",
+      "note": "Bloc optique avant gauche : vitre et surfaces internes conservées de B14. Dessin interne et fermeture arrière simplifiés ; aucun éclaté des LED ou du câblage.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.29324317865584587,
+        1.78,
+        0.8836902388121166
+      ],
+      "stage": [
+        0.32,
+        0.94
+      ]
+    },
+    {
+      "id": "headlightRight",
+      "node": "headlightRight",
+      "label": "Phare avant droit",
+      "ficheId": "body-roof",
+      "note": "Bloc optique avant droit : vitre et surfaces internes conservées de B14. Dessin interne et fermeture arrière simplifiés ; aucun éclaté des LED ou du câblage.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.46295998695545376,
+        1.78,
+        0.8078168421605272
+      ],
+      "stage": [
+        0.32,
+        0.94
+      ]
+    },
+    {
+      "id": "fogRight",
+      "node": "fogRight",
+      "label": "Antibrouillard avant droit",
+      "ficheId": "body-roof",
+      "note": "Optique basse droite, séparée des vitrages de l’habitacle. Forme issue du modèle adapté ; fonctionnement et internes non simulés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.5625603035189639,
+        1.55,
+        1.099329752578657
+      ],
+      "stage": [
+        0.36,
+        0.97
+      ]
+    },
+    {
+      "id": "fogLeft",
+      "node": "fogLeft",
+      "label": "Antibrouillard avant gauche",
+      "ficheId": "body-roof",
+      "note": "Optique basse gauche, séparée des vitrages de l’habitacle. Forme issue du modèle adapté ; fonctionnement et internes non simulés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.33294344523125924,
+        1.55,
+        1.189179827560802
+      ],
+      "stage": [
+        0.36,
+        0.97
+      ]
+    },
+    {
+      "id": "centerDisplay",
+      "node": "centerDisplay",
+      "label": "Écran central vertical",
+      "ficheId": "infotainment",
+      "note": "Écran central vertical et son entourage. MCU Intel Atom documenté dans la configuration du véhicule. Image d’écran héritée de la base, sans interface Tesla active ; dos ajouté simplifié.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.2664879562326176,
+        0.53,
+        -0.5493488592715584
+      ],
+      "stage": [
+        0.45,
+        1
+      ]
+    },
+    {
+      "id": "instrumentDisplay",
+      "node": "instrumentDisplay",
+      "label": "Écran d’instrumentation",
+      "ficheId": "infotainment",
+      "note": "Affichage devant le conducteur, distinct de l’écran central. Surface et entourage de la base conservés ; indications illustratives, aucun relevé de conduite en direct. Dos simplifié.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.33444127957626585,
+        0.66,
+        -0.32825147450604086
+      ],
+      "stage": [
+        0.46,
+        1
+      ]
+    },
+    {
+      "id": "seatDriver",
+      "node": "seatDriver",
+      "label": "Siège conducteur",
+      "ficheId": "seats",
+      "note": "Siège avant gauche beige clair, chauffant et ventilé. Zones perforées visibles sur les photos de la voiture ; motif du modèle illustratif. Profil, enveloppe et embase encore à affiner, sans nom commercial supposé.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.42588842274851707,
+        0.35,
+        -0.037670298230574245
+      ],
+      "stage": [
+        0.4,
+        0.96
+      ]
+    },
+    {
+      "id": "seatPassenger",
+      "node": "seatPassenger",
+      "label": "Siège passager avant",
+      "ficheId": "seats",
+      "note": "Siège avant droit beige clair, chauffant et ventilé. Zones perforées d’après les photos de la voiture ; motif illustratif. Profil, enveloppe et embase encore à affiner ; même réserve que le siège conducteur.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.4099150760850246,
+        0.35,
+        -0.12153036821390989
+      ],
+      "stage": [
+        0.4,
+        0.96
+      ]
+    },
+    {
+      "id": "rearBench",
+      "node": "rearBench",
+      "label": "Banquette arrière · trois places",
+      "ficheId": "seats",
+      "note": "Banquette arrière à trois places, chauffante et sans ventilation. L’assise et le dossier sont gardés ensemble ; ne pas confondre avec les fonctions des sièges avant. Détails de sellerie et faces arrière simplifiés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.05590671332222377,
+        0.33,
+        -0.5572023325556945
+      ],
+      "stage": [
+        0.42,
+        0.97
+      ]
+    },
+    {
+      "id": "forwardCameras",
+      "node": "forwardCameras",
+      "label": "Bloc de trois caméras au pare-brise",
+      "ficheId": "driver-assistance",
+      "note": "Boîtier compact et peu profond d’après la photo actuelle de la voiture, près de la bande noire du pare-brise ; trois petits objectifs en retrait. Proportions estimées à partir d’une seule vue, sans relevé dimensionnel.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.01996668332936563,
+        2.65,
+        0.19900083305560518
+      ],
+      "stage": [
+        0.15,
+        0.65
+      ]
+    },
+    {
+      "id": "brake0",
+      "node": "brake0",
+      "label": "Frein avant droit",
+      "ficheId": "wheels-suspension",
+      "note": "Disque ventilé, moyeu, cinq fixations, plaquettes et étrier schématiques. Teinte d’étrier neutre : le rouge de la photo n’est pas attribué à la voiture. Dimensions d’affichage estimées ; hydraulique et frein de stationnement non détaillés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.4776019993334524,
+        -0.04,
+        -0.04792003999047751
+      ],
+      "stage": [
+        0.24,
+        0.91
+      ]
+    },
+    {
+      "id": "suspension0",
+      "node": "suspension0",
+      "label": "Suspension avant droit",
+      "ficheId": "wheels-suspension",
+      "note": "Architecture avant à triangles et bras. Ressort hélicoïdal, amortisseur, coupelles, porte-moyeu et articulations schématiques. Aucune suspension pneumatique. Géométrie d’affichage estimée, sans simulation de débattement ou de démontage.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.12935054148614336,
+        0.24,
+        -0.012978344164087661
+      ],
+      "stage": [
+        0.3,
+        0.95
+      ]
+    },
+    {
+      "id": "brake1",
+      "node": "brake1",
+      "label": "Frein avant gauche",
+      "ficheId": "wheels-suspension",
+      "note": "Disque ventilé, moyeu, cinq fixations, plaquettes et étrier schématiques. Teinte d’étrier neutre : le rouge de la photo n’est pas attribué à la voiture. Dimensions d’affichage estimées ; hydraulique et frein de stationnement non détaillés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.4776019993334524,
+        -0.04,
+        0.04792003999047751
+      ],
+      "stage": [
+        0.24,
+        0.91
+      ]
+    },
+    {
+      "id": "suspension1",
+      "node": "suspension1",
+      "label": "Suspension avant gauche",
+      "ficheId": "wheels-suspension",
+      "note": "Architecture avant à triangles et bras. Ressort hélicoïdal, amortisseur, coupelles, porte-moyeu et articulations schématiques. Aucune suspension pneumatique. Géométrie d’affichage estimée, sans simulation de débattement ou de démontage.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.12935054148614336,
+        0.24,
+        0.012978344164087661
+      ],
+      "stage": [
+        0.3,
+        0.95
+      ]
+    },
+    {
+      "id": "brake2",
+      "node": "brake2",
+      "label": "Frein arrière droit",
+      "ficheId": "wheels-suspension",
+      "note": "Disque ventilé, moyeu, cinq fixations, plaquettes et étrier schématiques. Teinte d’étrier neutre : le rouge de la photo n’est pas attribué à la voiture. Dimensions d’affichage estimées ; hydraulique et frein de stationnement non détaillés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.4776019993334524,
+        -0.04,
+        -0.04792003999047751
+      ],
+      "stage": [
+        0.24,
+        0.91
+      ]
+    },
+    {
+      "id": "suspension2",
+      "node": "suspension2",
+      "label": "Suspension arrière droit",
+      "ficheId": "wheels-suspension",
+      "note": "Architecture arrière à plusieurs bras. Ressort hélicoïdal, amortisseur, coupelles, porte-moyeu et articulations schématiques. Aucune suspension pneumatique. Géométrie d’affichage estimée, sans simulation de débattement ou de démontage.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.12935054148614336,
+        0.24,
+        -0.012978344164087661
+      ],
+      "stage": [
+        0.3,
+        0.95
+      ]
+    },
+    {
+      "id": "brake3",
+      "node": "brake3",
+      "label": "Frein arrière gauche",
+      "ficheId": "wheels-suspension",
+      "note": "Disque ventilé, moyeu, cinq fixations, plaquettes et étrier schématiques. Teinte d’étrier neutre : le rouge de la photo n’est pas attribué à la voiture. Dimensions d’affichage estimées ; hydraulique et frein de stationnement non détaillés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.4776019993334524,
+        -0.04,
+        0.04792003999047751
+      ],
+      "stage": [
+        0.24,
+        0.91
+      ]
+    },
+    {
+      "id": "suspension3",
+      "node": "suspension3",
+      "label": "Suspension arrière gauche",
+      "ficheId": "wheels-suspension",
+      "note": "Architecture arrière à plusieurs bras. Ressort hélicoïdal, amortisseur, coupelles, porte-moyeu et articulations schématiques. Aucune suspension pneumatique. Géométrie d’affichage estimée, sans simulation de débattement ou de démontage.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.12935054148614336,
+        0.24,
+        0.012978344164087661
+      ],
+      "stage": [
+        0.3,
+        0.95
+      ]
+    },
+    {
+      "id": "subframeFront",
+      "node": "subframeFront",
+      "label": "Berceau avant simplifié",
+      "ficheId": "wheels-suspension",
+      "note": "Structure porteuse schématique reliant les points de bras et les supports de groupe moteur. Forme et fixations estimées ; ni déformation, ni résistance ou assemblage usine simulés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.06189671832103345,
+        -0.04,
+        0.6169025824723761
+      ],
+      "stage": [
+        0.35,
+        1
+      ]
+    },
+    {
+      "id": "subframeRear",
+      "node": "subframeRear",
+      "label": "Berceau arrière simplifié",
+      "ficheId": "wheels-suspension",
+      "note": "Structure porteuse schématique reliant les points de bras et les supports de groupe moteur. Forme et fixations estimées ; ni déformation, ni résistance ou assemblage usine simulés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.06189671832103345,
+        -0.04,
+        -0.6169025824723761
+      ],
+      "stage": [
+        0.35,
+        1
+      ]
+    },
+    {
+      "id": "tailRight",
+      "node": "tailRight",
+      "label": "Feux arrière droits",
+      "ficheId": "body-roof",
+      "note": "Parties de feu de ce côté regroupées pour la lecture de l’éclaté. Surfaces et couleurs B14 conservées ; dos noirs ajoutés simplifiés. Le bandeau chromé et les inscriptions restent sur le hayon. Ni fonctions lumineuses ni détail des LED simulés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        -0.2534763120566274,
+        1.6,
+        -0.7791981514519727
+      ],
+      "stage": [
+        0.3,
+        0.95
+      ]
+    },
+    {
+      "id": "tailLeft",
+      "node": "tailLeft",
+      "label": "Feux arrière gauches",
+      "ficheId": "body-roof",
+      "note": "Parties de feu de ce côté regroupées pour la lecture de l’éclaté. Surfaces et couleurs B14 conservées ; dos noirs ajoutés simplifiés. Le bandeau chromé et les inscriptions restent sur le hayon. Ni fonctions lumineuses ni détail des LED simulés.",
+      "rest": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "offset": [
+        0.4032264370268696,
+        1.6,
+        -0.7133080964650661
+      ],
+      "stage": [
+        0.3,
+        0.95
+      ]
+    }
+  ],
+  "configuration": {
+    "year": 2017,
+    "version": "Model S 75D phase 2",
+    "paint": "PPMR visually estimated",
+    "interior": "light beige / dark ash / black headliner",
+    "roof": "solid painted, opaque, no opening",
+    "wheels": "silver Slipstream 19 inches",
+    "suspension": "coil springs, no air suspension",
+    "frontSeats": "heated and ventilated",
+    "rearSeats": "heated, not ventilated"
+  },
+  "credits": {
+    "scene": "Nicolas And His P100D",
+    "author": "PatrickBiani",
+    "source": "https://sketchfab.com/3d-models/nicolas-and-his-p100d-c0859ece5c86493b9fbccecae237c6ed",
+    "declaredLicence": "CC BY 4.0",
+    "licenceURL": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Local B05–B20 adaptation, schematic additions, separation and paint shading; B21 continuous solid roof, fitted windscreen junction and illustrative underside protections; B22 removes rejected external underside plates; original hull surface retained with procedural estimated finish, no extrusion; B23 roof edge heights matched to existing rails and two internal estimated carpeted cargo wheel-house covers",
+    "upstreamVehicleProvenance": "unresolved; clarify before distribution"
+  },
+  "limitations": [
+    "Schematic mechanical components; no repair procedure or mechanical simulation",
+    "Estimated dimensions and colours; seat profiles and fine trim not certified faithful",
+    "No cables, cooling circuits or complete internal construction",
+    "B22 underside finish and shallow visual ribs are procedural estimates on the original hull surface; no photograph or measured factory geometry used",
+    "B23 cargo trim is schematic; roof edge follows existing model rails, not a dimensional survey"
+  ],
+  "bytes": 28005276,
+  "sha256": "ad23d25affd712e6fd54305cf12fcfda5cddb512c846ba3ddded26bc100d3c1b",
+  "parentModel": {
+    "version": "B22-01",
+    "sha256": "7096dbc124807c3c408c5a4f3392cc2524813386ae1f587a24b16fa01da1974c"
+  },
+  "statistics": {
+    "meshes": 250,
+    "triangles": 520407,
+    "selections": 42
+  }
+}

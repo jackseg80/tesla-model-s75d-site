@@ -1,0 +1,92 @@
+{
+  "reviewedAt": "2026-10-31",
+  "sources": {
+    "owner": "Déclaration du propriétaire du 28 octobre 2026, consignée dans CONFIGURATION.md ; aucun nouveau relevé examiné.",
+    "S02": "Capture de configuration du véhicule, examinée le 28 octobre 2026 ; date de capture non établie.",
+    "S08": "Informations du véhicule archivées, examinées le 28 octobre 2026 ; date de capture non établie.",
+    "S09": "Intervention documentée du 31 juillet 2020 : passage 60D vers 75D et mise à niveau des performances.",
+    "S10": "Intervention documentée du 7 octobre 2020 : adaptation CCS et travaux sur le chargeur embarqué.",
+    "S11": "Intervention documentée du 15 février 2021 : MCU Intel, AP3 et remplacement de l’écran.",
+    "S12": "Archive TeslaMate intitulée janvier 2026 ; date exacte du relevé non établie. Historique examiné dans le projet.",
+    "S17": "Intervention documentée du 10 mars 2021 : remplacement du seul siège conducteur.",
+    "S18": "Configuration Tesla archivée du 13 juin 2020, examinée le 28 octobre 2026.",
+    "S19": "Capture archivée des informations du véhicule, examinée le 28 octobre 2026 ; date exacte non établie.",
+    "S20": "Capture archivée des options du véhicule, examinée le 28 octobre 2026 ; conditions actuelles à vérifier."
+  },
+  "fiches": [
+    {
+      "id": "battery", "title": "Batterie", "subtitle": "Comprendre la capacité conservée", "summary": "Le suivi distingue la santé estimée de la batterie, la charge restante et l’autonomie. Les chiffres disponibles sont datés : ils ne constituent pas une mesure actuelle certifiée.",
+      "facts": [
+        {"label": "SOH habituellement estimé", "value": [89.5, 90], "unit": "%", "display": "Environ 89,5 à 90 %", "status": "declaration", "declarationDate": "2026-10-28", "measurementDate": null, "mileageKm": null, "method": "100 % moins la perte de capacité déclarée ; pas de mesure indépendante", "sources": ["owner"]},
+        {"label": "Perte de capacité correspondante", "value": [10, 10.5], "unit": "%", "display": "Environ 10 à 10,5 %", "status": "declaration", "declarationDate": "2026-10-28", "measurementDate": null, "mileageKm": null, "method": "Estimation habituelle du propriétaire, même indication que le SOH ci-dessus", "sources": ["owner"]},
+        {"label": "Kilométrage communiqué", "value": 160675, "unit": "km", "display": "160 675 km", "status": "declaration", "declarationDate": "2026-10-28", "measurementDate": null, "mileageKm": null, "sources": ["owner"]},
+        {"label": "Repère TeslaMate", "value": 90, "unit": "%", "display": "90 % de santé affichée · 150 398 km", "status": "historique", "period": "Archive de janvier 2026", "measurementDate": null, "mileageKm": 150398, "method": "Indicateur affiché dans l’archive TeslaMate ; base de calcul à conserver avec le relevé", "sources": ["S12"]},
+        {"label": "Capacité nominale / utilisable actuelle", "value": null, "display": "À établir avec un relevé et sa méthode", "status": "inconnu", "sources": []}
+      ],
+      "details": ["Un point récent évoqué le 28 octobre atteint environ 11 % de perte, soit environ 89 % de SOH. Cette fluctuation déclarée ne suffit pas à établir une dégradation physique supplémentaire.", "Le SOC est le pourcentage de charge restant. Le SOH estime la capacité conservée par rapport à une référence neuve. Ils décrivent des choses différentes.", "Une autonomie affichée ou calculée dépend de sa référence ; l’autonomie réelle varie avec la température, la vitesse et l’usage. Aucun chiffre garanti n’est retenu ici."],
+      "pending": "Choisir le dernier relevé, sa date, son kilométrage et sa méthode ; préciser les capacités nominale et utilisable sans les déduire du badge 75D.", "geometry": "Bac et couvercle schématiques ; cellules, câblage et refroidissement non représentés.", "related": ["charging", "powertrain"]
+    },
+    {
+      "id": "powertrain", "title": "Moteurs et transmission", "subtitle": "Deux moteurs, quatre roues motrices", "summary": "Cette Model S possède une transmission intégrale Dual Motor. L’historique conserve son évolution de 60D vers 75D.",
+      "facts": [
+        {"label": "Motricité", "display": "Dual Motor · transmission intégrale", "status": "historique", "period": "Configuration archivée de 2020", "sources": ["S02", "S18"]},
+        {"label": "Moteurs indiqués", "display": "Induction à l’avant et à l’arrière ; petite unité arrière", "status": "historique", "period": "Captures archivées, date exacte inconnue", "sources": ["S08", "S19"]},
+        {"label": "Évolution de configuration", "display": "60D → 75D, déverrouillage et mise à niveau documentés", "status": "historique", "date": "2020-07-31", "sources": ["S09"]},
+        {"label": "Puissance et accélération à afficher", "value": null, "display": "À confirmer après rapprochement des sources", "status": "inconnu", "sources": []}
+      ], "details": ["Les deux groupes moteurs permettent de repérer la répartition avant/arrière. Leurs puissances individuelles ne sont pas additionnées pour annoncer une puissance véhicule.", "La géométrie ne reprend pas une grosse unité arrière de version Performance."], "pending": "Réconcilier les valeurs de puissance et leur définition avant tout chiffre de performance.", "geometry": "Moteurs, carters et électronique représentés par des volumes schématiques ; pas de démontage interne.", "related": ["battery", "wheels-suspension"]
+    },
+    {
+      "id": "seats", "title": "Sièges et habitacle", "subtitle": "Beige clair, frêne sombre et ciel noir", "summary": "L’habitacle associe une sellerie beige clair, des décors en frêne foncé et un ciel de toit noir. Le confort diffère entre les deux rangées.",
+      "facts": [
+        {"label": "Deux sièges avant", "display": "Chauffants et ventilés", "status": "declaration", "declarationDate": "2026-10-28", "sources": ["owner"]},
+        {"label": "Sièges arrière", "display": "Chauffants, sans ventilation", "status": "declaration", "declarationDate": "2026-10-28", "sources": ["owner"]},
+        {"label": "Finitions", "display": "Beige clair / tan · frêne foncé · ciel noir", "status": "historique", "date": "2020-06-13", "sources": ["S18"]},
+        {"label": "Pack hiver", "display": "Documenté ; volant et essuie-glaces chauffants indiqués", "status": "historique", "period": "Configuration 2020 et captures archivées", "sources": ["S18", "S08", "S19"]},
+        {"label": "Siège conducteur", "display": "Remplacé le 10 mars 2021", "status": "historique", "date": "2021-03-10", "sources": ["S17"]}
+      ], "details": ["Le libellé LUX TAN de la pièce de remplacement concerne le siège conducteur ; il ne permet pas de nommer commercialement toute la sellerie.", "Les formes du tableau de bord et du volant constituent la base visuelle retenue par le propriétaire. La rareté de cette combinaison n’est pas établie."], "pending": "Compléter les photos sélectionnées et les fonctions de réglage effectivement vérifiées.", "geometry": "Profils de sièges et certains envers encore approximatifs ; aucun relevé d’usine revendiqué.", "related": ["infotainment", "body-roof"]
+    },
+    {
+      "id": "infotainment", "title": "Écran et multimédia", "subtitle": "Écran vertical, équipement mis à niveau", "summary": "L’écran central vertical conserve la présentation de cette génération. La mise à niveau de 2021 est documentée séparément des fonctions disponibles aujourd’hui.",
+      "facts": [
+        {"label": "Processeur multimédia", "display": "MCU Intel Atom", "status": "historique", "period": "Intervention 2021 et captures archivées", "sources": ["S11", "S08", "S19"]},
+        {"label": "Mise à niveau", "display": "MCU Intel / AP3 et remplacement de l’écran", "status": "historique", "date": "2021-02-15", "sources": ["S11"]},
+        {"label": "Audio", "display": "Base, selon les captures", "status": "historique", "period": "Captures archivées, date exacte inconnue", "sources": ["S08", "S19"]},
+        {"label": "Connexion Premium", "display": "Incluse dans la capture ; conditions actuelles à vérifier", "status": "historique", "period": "Capture archivée", "sources": ["S20"]}
+      ], "details": ["Audio Base, Connexion Premium et pack d’améliorations Premium sont trois informations distinctes.", "Les images d’écran visibles dans la 3D sont décoratives et héritées de la base. Elles ne représentent pas une interface Tesla active ni l’état logiciel de la voiture."], "pending": "Vérifier les applications, la connectivité et les conditions applicables au moment de la présentation finale.", "geometry": "Écrans et entourages sélectionnables ; contenus d’écran illustratifs.", "related": ["seats", "driver-assistance"]
+    },
+    {
+      "id": "driver-assistance", "title": "Aides à la conduite", "subtitle": "Matériel, options et fonctions séparés", "summary": "Les archives indiquent un calculateur Autopilot 3 / FSD 3 après mise à niveau. Le matériel installé ne détermine pas à lui seul les fonctions utilisables.",
+      "facts": [
+        {"label": "Calculateur", "display": "Autopilot 3 / FSD 3 affiché", "status": "historique", "period": "Intervention 2021 et captures archivées", "sources": ["S11", "S08", "S20"]},
+        {"label": "Option archivée", "display": "Intitulé de capacité de conduite autonome inclus", "status": "historique", "period": "Configuration 2020 et capture d’options", "sources": ["S18", "S20"]},
+        {"label": "Fonctions actuellement vérifiées", "value": null, "display": "Inventaire à compléter sur la voiture", "status": "inconnu", "sources": []}
+      ], "details": ["L’intitulé commercial archivé ne constitue pas une promesse de conduite sans supervision. Aucune fonction actuelle ou condition de transfert à un futur propriétaire n’en est déduite.", "Le bloc de caméras au pare-brise sert de repère visuel. Sa forme et ses dimensions restent estimées."], "pending": "Recenser les fonctions réellement en service et vérifier les conditions applicables aux options.", "geometry": "Bloc de trois caméras schématique, ajusté visuellement à une photo de la voiture.", "related": ["infotainment", "body-roof"]
+    },
+    {
+      "id": "charging", "title": "Recharge", "subtitle": "Une adaptation CCS documentée", "summary": "L’adaptation CCS apparaît dans l’historique d’intervention et sa prise en charge dans les informations archivées du véhicule.",
+      "facts": [
+        {"label": "Adaptation CCS", "display": "Intervention documentée le 7 octobre 2020", "status": "historique", "date": "2020-10-07", "sources": ["S10"]},
+        {"label": "Prise en charge CCS", "display": "Activée dans les captures archivées", "status": "historique", "period": "Captures archivées, date exacte inconnue", "sources": ["S08", "S19"]},
+        {"label": "Chargeur embarqué", "display": "Travaux / remplacement documentés en 2020", "status": "historique", "date": "2020-10-07", "sources": ["S10"]},
+        {"label": "Puissances AC / DC retenues", "value": null, "display": "À établir pour la configuration exacte", "status": "inconnu", "sources": []},
+        {"label": "Câbles et adaptateurs inclus", "value": null, "display": "Inventaire actuel à confirmer", "status": "inconnu", "sources": []}
+      ], "details": ["Un maximum enregistré lors d’une recharge n’est pas une puissance garantie en toutes conditions.", "Les statistiques éventuelles seront accompagnées de la période réellement enregistrée. Elles ne décrivent pas automatiquement toute la vie de la voiture."], "pending": "Confirmer accessoires, puissance AC et données de recharge datées avant leur présentation finale.", "geometry": "Aucun organe de recharge isolé dans le paquet B20. Cette fiche reste entièrement accessible par la navigation.", "related": ["battery", "powertrain"]
+    },
+    {
+      "id": "body-roof", "title": "Carrosserie et toit", "subtitle": "Rouge multicouches et toit plein peint", "summary": "Model S de 2017 phase 2 : la représentation suit les références de la voiture, avec un toit plein couleur carrosserie, sans vitrage ni ouverture.",
+      "facts": [
+        {"label": "Configuration", "display": "Model S 75D · 2017 · phase 2", "status": "historique", "period": "Configuration et références du projet", "sources": ["S02", "S18"]},
+        {"label": "Peinture de référence", "display": "Rouge multicouches PPMR", "status": "historique", "date": "2020-06-13", "sources": ["S02", "S18"]},
+        {"label": "Toit", "display": "Plein et peint · aucun vitrage ni ouverture", "status": "declaration", "declarationDate": "2026-10-28", "sources": ["owner", "S18"]}
+      ], "details": ["La teinte et les reflets du rendu sont estimés visuellement. Ils ne prouvent ni une mesure colorimétrique PPMR ni l’état actuel de la carrosserie.", "Le raccord de bas de caisse B20 reste soumis à l’examen visuel du propriétaire."], "pending": "Sélectionner des photos récentes et confirmer la réception visuelle des raccords.", "geometry": "Carrosserie adaptée, raccords locaux et certains envers simplifiés ; pas un modèle de fabrication.", "related": ["seats", "wheels-suspension"]
+    },
+    {
+      "id": "wheels-suspension", "title": "Roues et suspension", "subtitle": "Slipstream argent de 19 pouces", "summary": "Le rendu conserve les jantes Slipstream argent de 19 pouces retenues. La voiture ne possède pas de suspension pneumatique.",
+      "facts": [
+        {"label": "Roues de référence", "value": 19, "unit": "pouces", "display": "Slipstream argent · 19 pouces", "status": "historique", "period": "Configuration archivée de 2020", "sources": ["S02", "S18"]},
+        {"label": "Suspension", "display": "Sans suspension pneumatique", "status": "declaration", "declarationDate": "2026-10-28", "sources": ["owner"]},
+        {"label": "Pneus et jeux de roues actuels", "value": null, "display": "Dimensions, état et éléments inclus à confirmer", "status": "inconnu", "sources": []}
+      ], "details": ["Les jantes B13 ont été acceptées visuellement et sont conservées dans le paquet réutilisable B20.", "Les freins, ressorts et berceaux permettent de comprendre l’organisation générale. Leurs dimensions ne sont pas des cotes de réparation."], "pending": "Confirmer les pneus et les jeux effectivement présentés ou inclus dans une éventuelle vente.", "geometry": "Roues adaptées ; freins, suspensions à ressorts et berceaux schématiques.", "related": ["powertrain", "body-roof"]
+    }
+  ]
+}
