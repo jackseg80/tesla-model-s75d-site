@@ -1,0 +1,54 @@
+/* D03: restrained discovery tools; the existing studio remains the main view. */
+.explore-tools { display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; margin:0 0 16px; }
+.explore-tools button { font-size:12px; }
+.explore-tools .small { margin:0; color:#adbcc5; font-size:11px; }
+.tour-panel { position:fixed; z-index:25; right:max(18px,2vw); bottom:18px; width:min(380px,calc(100vw - 36px)); max-height:60dvh; overflow:auto; padding:18px 20px; border:1px solid #46535d; border-left:3px solid #d49c83; border-radius:7px; background:#182128; box-shadow:0 10px 45px #0007; }
+.fiche-open #tour-panel { display:none; }
+.tour-panel h2:focus { outline:none; }
+.tour-panel h2 { font-size:23px; margin:5px 0 8px; }
+.tour-panel p { max-width:85ch; font-size:13px; margin:7px 0 12px; }
+.tour-panel .eyebrow { font-size:9px; color:#d49c83; }
+.tour-controls { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.tour-controls button { font-size:12px; }
+#tour-exit { margin-left:auto; }
+.marker-tools { display:flex; align-items:center; gap:10px; }
+.marker-tools button { font-size:11px; min-height:38px; }
+.marker-tools span { font-size:10px; color:#9baeb9; }
+#viewport { position:relative; }
+.scene-labels { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.scene-label { position:absolute; transform:translate(-50%,-50%); max-width:210px; padding:6px 9px; background:#121d25ed; border:1px solid #b98d72; color:#f6eee6; border-radius:4px; font-size:10px; line-height:1.4; box-shadow:0 3px 12px #0004; }
+.parts-board { padding:20px 0 30px; }
+.board-heading { display:flex; justify-content:space-between; align-items:center; gap:14px; }
+.board-heading h2 { margin:5px 0; font-size:28px; }
+.board-heading .eyebrow { font-size:9px; }
+.parts-board > p { color:#b0bec6; max-width:85ch; font-size:12px; }
+.board-filters { display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 12px; }
+.board-filters label { display:flex; flex-direction:column; gap:7px; font-size:12px; }
+.board-filters input,.board-filters select { min-height:44px; padding:10px; border:1px solid #52636e; border-radius:5px; background:#182128; color:#f5f3ee; max-width:100%; }
+.parts-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:14px; }
+.part-card { text-align:left; padding:0 0 15px; display:flex; flex-direction:column; overflow:hidden; background:#182128; }
+.part-card img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:#13191e; }
+.part-card strong,.part-card span { margin:0 13px; }
+.part-card-family { color:#b5bfc4; font-size:10px; padding:13px 0 7px; }
+.part-card strong { font-size:13px; line-height:1.45; }
+.part-card-action { color:#e3b39a; font-size:10px; padding-top:12px; margin-top:auto!important; }
+body.board-open .workspace { display:none!important; }
+@media(max-width:760px) {
+  .explore-tools { gap:7px; margin-bottom:13px; }
+  .explore-tools button { flex:1; font-size:11px; min-height:44px; }
+  .explore-tools .small { flex-basis:100%; }
+  .tour-panel { left:6px; right:6px; bottom:0; width:auto; max-height:42dvh; padding:15px; border-radius:12px 12px 0 0; }
+  .tour-panel h2 { font-size:21px; }
+  .tour-panel p { font-size:12px; }
+  .tour-controls button { min-height:44px; font-size:11px; }
+  #tour-exit { margin-left:0; }
+  .board-heading { align-items:flex-start; }
+  .board-heading h2 { font-size:23px; }
+  #board-close { font-size:11px; max-width:135px; }
+  .board-filters label { flex:1 1 130px; min-width:0; }
+  .board-filters input,.board-filters select { width:100%; }
+  .parts-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+  .part-card strong { font-size:11px; }
+  .part-card span,.part-card strong { margin-inline:10px; }
+  .scene-label { font-size:10px; max-width:175px; }
+}

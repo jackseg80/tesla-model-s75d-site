@@ -1,4 +1,5 @@
 import {preferredTargets} from './scene/model-map.js';
+import {setupExploration} from './exploration.js';
 
 const $ = selector => document.querySelector(selector);
 const articles = [...document.querySelectorAll('.paper article')];
@@ -7,6 +8,7 @@ const modeLink = $('#mode'), status = $('#scene-state'), loading = $('#loading')
 const panel = $('#fiche-panel'), familyIds = [...document.querySelectorAll('[data-fiche]')].map(a => a.dataset.fiche);
 let studio = null, loadingPromise = null, reading = new URL(location.href).searchParams.get('mode') === 'lecture';
 let fiche = 'overview', selectedPart = null, lastTrigger = null, failed = false, failureReason = null;
+let exploration;
 
 function showFiche(id, {focus = false} = {}) {
   const previous = fiche;
@@ -34,7 +36,8 @@ function address(id, part = null) {
   const next = id === 'overview' ? '' : `#${id}${part ? '/' + encodeURIComponent(part) : ''}`;
   if (location.hash !== next) history.pushState(null, '', location.pathname + location.search + next);
 }
-function chooseFiche(id, {part, focus = false, updateURL = true, navigation = part === undefined ? 'family' : 'keep'} = {}) {
+function chooseFiche(id, {part, focus = false, updateURL = true, navigation = part === undefined ? 'family' : 'keep', guided = false} = {}) {
+  if (!guided) {exploration?.closeBoard({focus:false});exploration?.free();}
   const valid = ids.has(id) ? id : 'overview';
   selectedPart = part === undefined ? preferredTargets[valid] ?? null : part;
   if (studio && selectedPart && studio.targets.get(selectedPart)?.ficheId !== valid) selectedPart = null;
@@ -64,12 +67,14 @@ function closeFiche() {
   else document.querySelector('[data-fiche]').focus({preventScroll: true});
 }
 function changeReading(value) {
+  if (reading !== value) {exploration?.closeBoard({focus:false});exploration?.free();}
   reading = value; document.body.classList.toggle('reading', reading);
   const url = new URL(location.href);
   if (reading) url.searchParams.set('mode', 'lecture'); else url.searchParams.delete('mode');
   history.replaceState(null, '', url);
   modeLink.textContent = reading ? 'Revenir à la 3D ↗' : 'Lire sans 3D ↗';
   modeLink.href = reading ? '?'+new URLSearchParams([...url.searchParams].filter(([key]) => key !== 'mode')) + url.hash : '?mode=lecture'+url.hash;
+  $('#board-close').textContent=reading?'Retour aux fiches':'Retour à la voiture';
   document.querySelectorAll('.return-car').forEach(b => { b.textContent = reading ? 'Retour aux ensembles' : 'Retour à la voiture'; });
   showFiche(fiche);
   if (!reading) { if (studio) studio.resize(); else startScene(); }
@@ -100,6 +105,7 @@ window.addEventListener('keydown', e => {
 function updateSceneState(state) {
   $('#separation').value = String(Math.round(state.progress * 100));
   $('#percent').textContent = `${Math.round(state.progress * 100)} %`;
+  $('#labels').setAttribute('aria-pressed',String(state.labelsEnabled));
   $('#part').value = state.selected || '';
   $('#isolate').disabled = !state.selected;
   $('#show-fiche').disabled = !state.selected;
@@ -146,6 +152,12 @@ async function startScene() {
       studio = await createStudio($('#viewport'), {
         onSelect(id) { if (!id) { closeFiche(); return; } lastTrigger = $('#viewport'); const target = studio.targets.get(id); chooseFiche(target.ficheId, {part: id, focus: true}); },
         onState: updateSceneState,
+        onInteract: () => exploration?.free(),
+        onProgress(info) {
+          if (info.stage === 'prepare') {message.textContent='Préparation de la scène…';progress.removeAttribute('value');return;}
+          if (info.total) {progress.max=info.total;progress.value=info.loaded;message.textContent=`Chargement de la voiture · ${Math.round(info.loaded/info.total*100)} %`;}
+          else {progress.removeAttribute('value');message.textContent=`Chargement de la voiture · ${(info.loaded/1e6).toFixed(1).replace('.',',')} Mo reçus`;}
+        },
         onContextLost: () => failScene(Error('Le contexte graphique a été perdu. Réessayez ou consultez les fiches.')),
       });
       if (failed) return;
@@ -156,14 +168,18 @@ async function startScene() {
       }
       loading.hidden = true;
       document.querySelectorAll('[data-scene]').forEach(b => { b.disabled = false; });
-      fromAddress(); studio.resize();
+      if (exploration?.inspect().tour < 0) fromAddress();
+      exploration?.onSceneReady(); studio.resize();
     } catch (error) { failScene(error); }
   })();
   return loadingPromise;
 }
 $('#separation').addEventListener('input', e => studio?.set(Number(e.target.value) / 100));
-$('#explode').addEventListener('click', () => { studio.view('threeQuarter'); studio.set(1); });
-$('#assemble').addEventListener('click', () => { studio.view('threeQuarter'); studio.set(0); });
+$('#explode').addEventListener('click', () => studio.animateTo(1));
+$('#assemble').addEventListener('click', () => studio.animateTo(0));
+$('#labels').addEventListener('click', () => studio?.setLabels($('#labels').getAttribute('aria-pressed')!=='true'));
+$('.scene-controls').addEventListener('click',event=>{if(event.target.closest('button,input,select'))exploration?.free();},{capture:true});
+$('.scene-controls').addEventListener('input',()=>exploration?.free(),{capture:true});
 $('#reset').addEventListener('click', () => { studio.reset(); $('#pan-mode').setAttribute('aria-pressed','false');$('#pan-mode').textContent='Déplacer';selectedPart = null; closeFiche(); });
 $('#recenter').addEventListener('click', () => studio?.recenter());
 document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => studio?.view(b.dataset.view)));
@@ -184,7 +200,11 @@ $('#part').addEventListener('change', e => {
   else { selectedPart = null; studio.select(null); closeFiche(); }
 });
 window.addEventListener('pagehide', e => { if (!e.persisted) studio?.dispose(); });
+exploration=setupExploration({getStudio:()=>studio,chooseFiche,closeFiche,
+  getUI:()=>({fiche,selectedPart,hash:location.hash,pan:$('#pan-mode').getAttribute('aria-pressed')==='true'}),
+  restoreUI(saved){selectedPart=saved.selectedPart;showFiche(saved.fiche);history.replaceState(null,'',location.pathname+location.search+saved.hash);$('#pan-mode').setAttribute('aria-pressed',String(saved.pan));$('#pan-mode').textContent=saved.pan?'Revenir à la rotation':'Déplacer';},
+});
 document.body.classList.add('enhanced');
 fromAddress(); changeReading(reading);
 // Local diagnostic surface, no data collection or vehicle connection.
-window.teslaApp = {get studio() { return studio; }, inspect: () => ({fiche, selectedPart, reading, failed, failureReason, loading: !studio && !failed && !reading, scene: studio?.inspect() ?? null})};
+window.teslaApp = {get studio() { return studio; }, inspect: () => ({fiche, selectedPart, reading, failed, failureReason, loading: !studio && !failed && !reading, discovery:exploration.inspect(), scene: studio?.inspect() ?? null})};
