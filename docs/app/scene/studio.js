@@ -64,6 +64,8 @@ export async function createStudio(host, {onSelect, onState, onContextLost, onPr
     let focusedIds = null, focusFamily = null, focusLabel = null, focusDirection = null;
     let labelsEnabled = false, hover = null;
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const coarsePointer = matchMedia('(pointer: coarse)');
+    const viewport = {width: 0, height: 0};
     const labelLayer = document.createElement('div'); labelLayer.className='scene-labels'; labelLayer.setAttribute('aria-hidden','true'); host.append(labelLayer);
     cleanups.push(()=>labelLayer.remove());
     const cancelMotion = () => {animation=null;};
@@ -113,6 +115,26 @@ export async function createStudio(host, {onSelect, onState, onContextLost, onPr
         if (targets.has(current.userData.selectionId)) return targets.get(current.userData.selectionId);
       }
       return null;
+    }
+    // The label layer must stay lightweight while the camera moves.  Keep the
+    // mesh membership and anchor in each target's local space instead of
+    // rebuilding boxes (and raycasting the full model) for every rendered frame.
+    const targetMeshes = new Map([...targets.keys()].map(id => [id, []]));
+    for (const mesh of meshes) {
+      const target = closestTarget(mesh);
+      if (target) targetMeshes.get(target.id).push(mesh);
+    }
+    const labelAnchors = new Map();
+    function prepareLabelAnchors() {
+      model.scene.updateMatrixWorld(true);
+      for (const target of targets.values()) {
+        const localBounds = new THREE.Box3();
+        const inverse = target.node.matrixWorld.clone().invert();
+        for (const mesh of targetMeshes.get(target.id)) {
+          localBounds.union(renderedBox(mesh).clone().applyMatrix4(mesh.matrixWorld).applyMatrix4(inverse));
+        }
+        if (!localBounds.isEmpty()) labelAnchors.set(target.id, localBounds.getCenter(new THREE.Vector3()));
+      }
     }
     function isDescendant(node, ancestor) {
       for (let n = node; n; n = n.parent) if (n === ancestor) return true;
@@ -212,6 +234,7 @@ export async function createStudio(host, {onSelect, onState, onContextLost, onPr
     function resize() {
       const {width, height} = host.getBoundingClientRect();
       if (!width || !height) return;
+      viewport.width = width; viewport.height = height;
       renderer.setSize(width, height, false); camera.aspect = width / height; camera.updateProjectionMatrix();
       if (animation) cancelMotion();
       if (autoFrame) frame(); render();
@@ -243,30 +266,43 @@ export async function createStudio(host, {onSelect, onState, onContextLost, onPr
       return hit?closestTarget(hit.object):null;
     }
     const labelNodes = new Map();
+    const landmarkIds = ['battery','motorFront','motorRear','seatDriver','centerDisplay','forwardCameras','roof','wheel0'];
+    const projectedAnchor = new THREE.Vector3();
+    function labelDimensions(label) {
+      const width = Math.min(190, Math.max(88, Math.ceil(label.length * 5.7 + 22)));
+      return {width, height: Math.max(28, 14 * Math.ceil((label.length * 5.7 + 22) / width) + 12)};
+    }
     function updateLabels() {
-      const coarse=matchMedia('(pointer: coarse)').matches;
-      const ids=coarse?[selected]:[selected,...(labelsEnabled?['battery','motorFront','motorRear','seatDriver','centerDisplay','forwardCameras','roof','wheel0']:[]),hover];
-      const wanted=[...new Set(ids.filter(Boolean))],rectangles=[];
-      for(const [id,el]of labelNodes)el.hidden=true;
-      camera.updateMatrixWorld();
+      const ids=coarsePointer.matches?[selected]:[selected,...(labelsEnabled?landmarkIds:[]),hover];
+      const wanted=[...new Set(ids.filter(Boolean))], candidates=[];
+      if (!viewport.width || !viewport.height) return;
       for(const id of wanted){
         const target=targets.get(id);if(!target)continue;
-        const visible=meshes.filter(m=>isVisible(m)&&isDescendant(m,target.node));if(!visible.length)continue;
-        const b=new THREE.Box3();for(const m of visible)b.union(renderedBox(m).clone().applyMatrix4(m.matrixWorld));
-        const p=b.getCenter(new THREE.Vector3()).project(camera);
+        if (!targetMeshes.get(id)?.some(isVisible)) continue;
+        const anchor=labelAnchors.get(id);if(!anchor)continue;
+        const p=projectedAnchor.copy(anchor).applyMatrix4(target.node.matrixWorld).project(camera);
         if(Math.abs(p.x)>.9||Math.abs(p.y)>.9||p.z>1||p.z< -1)continue;
-        const screen=renderer.domElement.getBoundingClientRect();
-        // A centre hidden by another ensemble should not receive a floating label.
-        const occluder=hitAt(screen.left+(p.x*.5+.5)*screen.width,screen.top+(-p.y*.5+.5)*screen.height);
-        if(occluder&&occluder.id!==id&&!isDescendant(occluder.node,target.node))continue;
-        let el=labelNodes.get(id);
-        if(!el){el=document.createElement('span');el.className='scene-label';el.textContent=target.label;labelNodes.set(id,el);labelLayer.append(el);}
-        el.hidden=false;el.style.left=`${(p.x*.5+.5)*100}%`;el.style.top=`${(-p.y*.5+.5)*100}%`;
-        const r=el.getBoundingClientRect();
-        if(r.left<screen.left+4||r.right>screen.right-4||rectangles.some(q=>r.left<q.right+6&&r.right>q.left-6&&r.top<q.bottom+6&&r.bottom>q.top-6)){el.hidden=true;continue;}
-        rectangles.push(r);
+        const size=labelDimensions(target.label), x=(p.x*.5+.5)*viewport.width-size.width/2, y=(-p.y*.5+.5)*viewport.height-size.height/2;
+        if(x<4||x+size.width>viewport.width-4||y<4||y+size.height>viewport.height-4)continue;
+        candidates.push({id,target,x,y,size,depth:p.z});
       }
+      // Nearer labels win a collision.  This inexpensive screen-space rule keeps
+      // the layer readable without probing the 3D geometry every frame.
+      candidates.sort((a,b)=>a.depth-b.depth);
+      const rectangles=[], shown=new Set();
+      for(const candidate of candidates){
+        const {id,target,x,y,size}=candidate;
+        if(rectangles.some(r=>x<r.right+6&&x+size.width>r.left-6&&y<r.bottom+6&&y+size.height>r.top-6))continue;
+        let el=labelNodes.get(id);
+        if(!el){el=document.createElement('span');el.className='scene-label';el.textContent=target.label;el.style.width=`${size.width}px`;labelNodes.set(id,el);labelLayer.append(el);}
+        if(el.hidden)el.hidden=false;
+        const transform=`translate3d(${Math.round(x)}px,${Math.round(y)}px,0)`;
+        if(el.style.transform!==transform)el.style.transform=transform;
+        shown.add(id);rectangles.push({left:x,top:y,right:x+size.width,bottom:y+size.height});
+      }
+      for(const [id,el]of labelNodes)if(!shown.has(id)&&!el.hidden)el.hidden=true;
     }
+    prepareLabelAnchors();
     function pointerDown(e) { pointers.add(e.pointerId); if (pointers.size > 1) multiTouch = true; if (pointers.size === 1) { down = [e.clientX, e.clientY]; multiTouch = false; } }
     function pointerUp(e) {
       pointers.delete(e.pointerId);

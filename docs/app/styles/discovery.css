@@ -16,7 +16,7 @@
 .marker-tools span { font-size:10px; color:#9baeb9; }
 #viewport { position:relative; }
 .scene-labels { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-.scene-label { position:absolute; transform:translate(-50%,-50%); max-width:210px; padding:6px 9px; background:#121d25ed; border:1px solid #b98d72; color:#f6eee6; border-radius:4px; font-size:10px; line-height:1.4; box-shadow:0 3px 12px #0004; }
+.scene-label { position:absolute; box-sizing:border-box; max-width:210px; padding:6px 9px; background:#121d25ed; border:1px solid #b98d72; color:#f6eee6; border-radius:4px; font-size:10px; line-height:1.4; box-shadow:0 3px 12px #0004; will-change:transform; }
 .parts-board { padding:20px 0 30px; }
 .board-heading { display:flex; justify-content:space-between; align-items:center; gap:14px; }
 .board-heading h2 { margin:5px 0; font-size:28px; }
